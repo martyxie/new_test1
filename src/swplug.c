@@ -10,9 +10,18 @@
 
 #include <stdio.h>
 #include "swlog.h"
+#include "swcommon.h"
 
 int sw_plua_init(int argc,char *argv[])
 {
+	sw_get_endian_type();
+	sw_common_init(BIG_ENDIAN);
+	int a = 0x12345678;
+	SW_LOG_DEBUG("a= %x\n",a);
+	a = sw_swapint32_value(a);
+	SW_LOG_DEBUG("a= %x\n",a);
+	a = sw_swapint32_value(a);
+	SW_LOG_DEBUG("a= %x\n",a);
 	return 0;
 }
 

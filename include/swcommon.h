@@ -22,4 +22,10 @@ typedef enum
 //返回当前的模式,大端或小端
 int sw_get_endian_type(void);
 
+uint32_t sw_swapint32_value(uint32_t value);
+
+uint16_t sw_swapint16_value(uint16_t value);
+
+void sw_common_init(endian_t mode);
+
 #endif
