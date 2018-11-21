@@ -13,6 +13,7 @@
 #include "swlog.h"
 
 static int m_log_level = LOG_LEVEL_ERROR;
+static char *m_level_info[] = {"ALL","DEBUG","ERROR"};
 
 void sw_log_out( int log_level,const char *file,int line,const char* format, ... )
 {
@@ -24,7 +25,7 @@ void sw_log_out( int log_level,const char *file,int line,const char* format, ...
 	va_start( args, format );
 	vsnprintf(log_buf,sizeof(log_buf),format,args);
 	va_end( args );
-	fprintf(stdout,"[%s,%d]%s",file,line,log_buf);
+	fprintf(stdout,"[sunniwell][%s][%s,%d]%s",m_level_info[log_level],file,line,log_buf);
 	return;
 }
 
